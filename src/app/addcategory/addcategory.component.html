@@ -1,0 +1,40 @@
+<div class="container" style="padding-top:20px">
+    <p>
+    Add Category
+  </p>
+  </div>
+  
+  
+   <div class="container">
+       <form [ngForm]=categoryForm >
+      <div class="row">
+        <div class="col-lg-8">
+          <input type="text"  [(ngModel)]="inputcategory.categoryname" name="categoryname"style="width:29%">
+          
+        </div>
+        <div class="col-lg-4 addicon">
+          <img src="assets\plusicon.png" alt="add" width="10%" (click)="addCategory(inputcategory)">
+          <div class="small" *ngIf=check style="color:red;margin-left:-61%">Enter the Category name</div>
+              </div>
+        
+      </div>
+    </form>
+      <div class="container list">
+       
+        <ul *ngFor="let category of categoryList" style="list-style-type: none;">
+          <div class="row">
+             <div class="col-lg-8">
+                    <li>{{category.categoryname}}
+         
+                        </li>
+             </div>
+        
+            <div class="col-lg-4" style="margin-left:-46%">
+                    <button class="btn btn-default">Edit</button>&nbsp;
+                    <button class="btn btn-default" (click)=" deleteCategory(category)">Delete</button>
+            </div>
+        </div>
+        </ul>
+    </div>
+    </div>
+   

@@ -1,0 +1,52 @@
+{
+  "category": [
+    {
+      "id": 1,
+      "categoryname": "Jogging"
+    },
+    {
+      "id": 2,
+      "categoryname": "Slowwalking"
+    },
+    {
+      "categoryname": "Running",
+      "id": 3
+    },
+    {
+      "categoryname": "Skipping",
+      "id": 4
+    },
+    {
+      "categoryname": "Jog",
+      "id": 5
+    },
+    {
+      "categoryname": "Hip",
+      "id": 6
+    },
+    {
+      "categoryname": "Hip",
+      "id": 7
+    },
+    {
+      "categoryname": "Hip",
+      "id": 8
+    },
+    {
+      "categoryname": "Hop",
+      "id": 9
+    },
+    {
+      "categoryname": "Hop",
+      "id": 10
+    },
+    {
+      "categoryname": "Hop",
+      "id": 11
+    },
+    {
+      "categoryname": "Sample",
+      "id": 12
+    }
+  ]
+}

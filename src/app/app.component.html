@@ -1,0 +1,29 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-header></app-header>
+<div class="container">
+<div class ="container title">
+  <h1>
+    Welcome to {{ title }}
+  </h1>
+  
+</div>
+
+
+<div class="container">
+   <div class="row">
+    
+    <ul class="nav nav-pills">
+        <li routerLinkActive="active"><a routerLink="/viewall">View All</a></li> &nbsp;&nbsp;&nbsp;
+        <li routerLinkActive="active"><a routerLink="/create">Create</a></li> &nbsp;&nbsp;&nbsp;
+       <li routerLinkActive="active"><a routerLink="/category">Category</a></li> &nbsp;&nbsp;&nbsp;
+      <li routerLinkActive="active"><a routerLink="/track">Track</a></li>
+    </ul>
+
+  </div>
+
+
+</div>
+
+</div>
+
+<router-outlet></router-outlet>
