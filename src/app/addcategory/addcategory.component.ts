@@ -10,8 +10,9 @@ import{Router} from '@angular/router'
 })
 export class AddcategoryComponent implements OnInit {
   constructor(private workoutcategoryService:WorkoutcategoryService,private router:Router ) { }
-  inputcategory={}
+
   check:boolean=false;
+  editableInput:boolean=false;
   categoryList:any;
   categoryForm:any
 
@@ -21,18 +22,21 @@ export class AddcategoryComponent implements OnInit {
     }) 
   }
 
-    addCategory(category){
+    addCategory(categoryname){
+      console.log("**Category**"+categoryname);
+      
+     let inputcategory ={}
+     inputcategory["categoryname"] = categoryname
 
-      console.log("**Category**"+JSON.stringify(category));
-       if(category=='' || category==undefined){
+       if(categoryname=='' || categoryname==undefined){
         this.check=true;
         console.log(this.check)
         
       }
        else{
          console.log("Else Block");
-         this.check=false
-         this.workoutcategoryService.postCategories(category).subscribe(data => {this.categoryList.push(category);this.categoryForm.reset()});
+        
+         this.workoutcategoryService.postCategories(inputcategory).subscribe(data => {this.categoryList.push(inputcategory); this.check=false});
          
          
        }
@@ -42,12 +46,20 @@ export class AddcategoryComponent implements OnInit {
 
 }
 
- deleteCategory(category){
+
+ deleteCategory1(category){
      this.workoutcategoryService.deleteCategory(category).subscribe(data=>{
-      this.workoutcategoryService.getCategories().subscribe(data=> { this.categoryList=data;this.categoryForm.reset();
+      this.workoutcategoryService.getCategories().subscribe(data=> { this.categoryList.splice(category,1)
         console.log(this.categoryList)
       }) 
      })
  }
+
+ deleteCategory(category){
+   this.categoryList.splice(category,1)
+     console.log(this.categoryList)
+   
+  
+}
 
 }

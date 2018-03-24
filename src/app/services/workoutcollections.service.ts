@@ -2,19 +2,19 @@ import { Injectable } from '@angular/core';
 import {HttpClient,HttpHeaders} from '@angular/common/http'
 import {UrlproviderService} from './urlprovider.service'
 @Injectable()
-export class WorkoutcategoryService {
-   private categoryUrl:string
+export class WorkoutcollectionsService {
+   private workoutUrl:string
   constructor(private http:HttpClient,private urlproviderService:UrlproviderService) {
-     this.categoryUrl = urlproviderService.getCompleteURL("category");
+     this.workoutUrl = urlproviderService.getCompleteURL("workout");
    }
-   getCategories(){
+   getworkouts(){
       
-       return this.http.get(this.categoryUrl);
+       return this.http.get(this.workoutUrl);
   }
-  postCategories(category){
-     return this.http.post(this.categoryUrl,category);
+  postworkouts(workout){
+     return this.http.post(this.workoutUrl,workout);
   }
-  deleteCategory(category){
-    return this.http.delete(this.categoryUrl)
+  deleteworkout(workout){
+    return this.http.delete(this.workoutUrl)
   }
 }

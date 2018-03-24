@@ -12,7 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { StartComponent } from './start/start.component';
 import { StopComponent } from './stop/stop.component';
 import {UrlproviderService} from './services/urlprovider.service'
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
@@ -31,6 +31,7 @@ import {HttpClientModule} from '@angular/common/http'
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [UrlproviderService],

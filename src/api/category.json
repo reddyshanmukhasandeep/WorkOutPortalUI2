@@ -13,40 +13,60 @@
       "id": 3
     },
     {
-      "categoryname": "Skipping",
+      "categoryname": "Sleeping",
       "id": 4
     },
     {
-      "categoryname": "Jog",
+      "categoryname": "Eating",
       "id": 5
     },
     {
-      "categoryname": "Hip",
+      "categoryname": "Cokking",
       "id": 6
     },
     {
-      "categoryname": "Hip",
+      "categoryname": "Cooking",
       "id": 7
     },
     {
-      "categoryname": "Hip",
+      "categoryname": "Hey",
       "id": 8
     },
     {
-      "categoryname": "Hop",
+      "categoryname": "hi",
       "id": 9
     },
     {
-      "categoryname": "Hop",
+      "categoryname": "hey",
       "id": 10
     },
     {
-      "categoryname": "Hop",
+      "categoryname": "Typed",
       "id": 11
     },
     {
-      "categoryname": "Sample",
+      "categoryname": "Typed",
       "id": 12
+    },
+    {
+      "categoryname": "h",
+      "id": 13
+    },
+    {
+      "categoryname": "e",
+      "id": 14
+    },
+    {
+      "categoryname": "Sandeep",
+      "id": 15
+    },
+    {
+      "categoryname": "Jogging",
+      "id": 16
+    },
+    {
+      "categoryname": "Viewing",
+      "id": 17
     }
   ]
 }

@@ -8,3 +8,24 @@
 body {
     font-family: 'Oswald', sans-serif !important;
   }
+
+  a:link {
+    color: red;
+}
+
+/* visited link */
+a:visited {
+    color: green ;
+}
+
+/* mouse over link */
+a:hover {
+    color: blue;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+    background-color: white
+}
+
