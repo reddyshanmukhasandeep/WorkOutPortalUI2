@@ -4,6 +4,7 @@ import {WorkoutcollectionsService} from '../services/workoutcollections.service'
 import {WorkoutcategoryService} from '../services/workoutcategory.service'
 import {Workoutcollections} from '../models/workoutcollections'
 import { Router } from '@angular/router';
+import {WorkoutsessionService} from '../services/workoutsession.service'
 
 @Component({
   selector: 'app-addworkout',
@@ -17,7 +18,8 @@ export class AddworkoutComponent implements OnInit {
   workout:Workoutcollections;
   categoryList:any;
   workoutList:any
-  constructor(private workoutcollections:Workoutcollections,private workoutcategoryService:WorkoutcategoryService,private workoutCollectionsService:WorkoutcollectionsService, private router : Router) { }
+  editbutton:boolean
+  constructor(private workoutsessionService:WorkoutsessionService,private workoutcollections:Workoutcollections,private workoutcategoryService:WorkoutcategoryService,private workoutCollectionsService:WorkoutcollectionsService, private router : Router) { }
 
   ngOnInit() {
     this.workoutcategoryService.getCategories().subscribe(data=> { this.categoryList=data;
@@ -26,11 +28,17 @@ export class AddworkoutComponent implements OnInit {
     this.workoutCollectionsService.getworkouts().subscribe(data=> { this.workoutList=data;
       
     })
+
+    
+    this.workoutsessionService.currenteditbutton.subscribe((data) =>{
+      this.editbutton = data;
+    }
+   )
     this.workoutForm = new FormGroup ({
       title: new FormControl('', [<any>Validators.required, Validators.minLength(5)]),
       catergoy_id: new FormControl('', [<any>Validators.required]),
       CBM:new  FormControl('',[<any>Validators.required]),
-      note:new FormControl('',[<any>Validators.required,Validators.minLength(5))
+      note:new FormControl('',[<any>Validators.required,Validators.minLength(5)])
      
   })
   
@@ -40,7 +48,7 @@ addWorkout()
 {
   this.workout=this.workoutForm.value;
   this.workoutCollectionsService.postworkouts(this.workout).subscribe(workout =>this.workoutList.push(this.workout));
-  this.router.navigate(['viewall']);
+  this.router.navigate(['workouts']);
 }
 
 }

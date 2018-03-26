@@ -1,11 +1,9 @@
 <div class="container" style="padding-top:20px">
-  <h4>
-    Add Workout
-  </h4>
-
+   <h4> Add Workout</h4>
+   
 </div>
 
- <div class="container">
+ <div class="container" style="padding-top:10px">
 
   <form [formGroup]="workoutForm" (ngSubmit)="addWorkout()" >
    <div class="form-group">
@@ -21,7 +19,7 @@
       <br>
       <div class="row">
           <div class="col-lg-1">
-            <label for="Note">Note</label>
+            <label for="Note">Note:</label>
           </div>
           <div class="col-lg-4">
             <textarea type="text" class="form-control" formControlName="note" id="Title">
@@ -61,17 +59,21 @@
           </div>
         </div>
         <br>
-       
-            <div>
-               <button class="btn btn-success btn-lg "  type="submit"  [disabled]="!workoutForm.get('title').valid || !workoutForm.get('CBM').valid  || !workoutForm.get('note').valid" >Add Workout </button>
-            </div>
-             <div>
-                 <button class= "btn btn-primary">Update</button>
-                 <button class ="btn btn-default">Cancel</button>
+            
+        <div class="row">
+            <div class="col-lg-3" style="padding-left:4%">
+                <button style="width:90%" class="btn btn-success btn-lg "  type="submit"  [disabled]="!workoutForm.get('title').valid || !workoutForm.get('CBM').valid  || !workoutForm.get('note').valid" >
+                   Add WorkOut
+                   
+                  </button>&nbsp;
+                 
              </div>
-             
-        
-      
+              <div class="col-lg-1">
+                  
+                  <button class ="btn btn-default btn-lg">Cancel</button>
+              </div>
+        </div>
+   
    </div>
   </form>
   </div>

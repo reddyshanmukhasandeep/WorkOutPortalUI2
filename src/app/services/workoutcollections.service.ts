@@ -5,7 +5,7 @@ import {UrlproviderService} from './urlprovider.service'
 export class WorkoutcollectionsService {
    private workoutUrl:string
   constructor(private http:HttpClient,private urlproviderService:UrlproviderService) {
-     this.workoutUrl = urlproviderService.getCompleteURL("workout");
+     this.workoutUrl = urlproviderService.getCompleteURL("workout/");
    }
    getworkouts(){
       
@@ -16,5 +16,10 @@ export class WorkoutcollectionsService {
   }
   deleteworkout(workout){
     return this.http.delete(this.workoutUrl)
+  }
+  getworkoutById(id){
+    console.log("***workout id"+id);
+    
+    return this.http.get(this.workoutUrl+id);
   }
 }

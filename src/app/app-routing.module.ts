@@ -6,15 +6,17 @@ import {AddcategoryComponent} from './addcategory/addcategory.component';
 import {TrackComponent} from './track/track.component';
 import { StartComponent } from './start/start.component';
 import { StopComponent } from './stop/stop.component';
+import {EditComponent} from './edit/edit.component';
 
 const routes:Routes=[
- {path:'' , pathMatch: 'full' ,redirectTo:'/viewall'},
- {path:'viewall', component: WorkouthomeComponent},
+ {path:'' , pathMatch: 'full' ,redirectTo:'/workouts'},
+ {path:'workouts', component: WorkouthomeComponent},
  {path:'create',component:AddworkoutComponent},
  {path:'category',component:AddcategoryComponent},
  {path:'track',component:TrackComponent},
- {path :'start',component:StartComponent},
- {path:'end',component:StopComponent}
+ {path :':id/start',component:StartComponent},
+ {path:':id/end',component:StopComponent},
+ {path:':id/edit',component:EditComponent},
 
 ];
 

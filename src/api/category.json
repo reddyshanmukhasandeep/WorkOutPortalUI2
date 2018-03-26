@@ -21,52 +21,12 @@
       "id": 5
     },
     {
-      "categoryname": "Cokking",
+      "categoryname": "Cooking",
       "id": 6
     },
     {
-      "categoryname": "Cooking",
+      "categoryname": "Jogg",
       "id": 7
-    },
-    {
-      "categoryname": "Hey",
-      "id": 8
-    },
-    {
-      "categoryname": "hi",
-      "id": 9
-    },
-    {
-      "categoryname": "hey",
-      "id": 10
-    },
-    {
-      "categoryname": "Typed",
-      "id": 11
-    },
-    {
-      "categoryname": "Typed",
-      "id": 12
-    },
-    {
-      "categoryname": "h",
-      "id": 13
-    },
-    {
-      "categoryname": "e",
-      "id": 14
-    },
-    {
-      "categoryname": "Sandeep",
-      "id": 15
-    },
-    {
-      "categoryname": "Jogging",
-      "id": 16
-    },
-    {
-      "categoryname": "Viewing",
-      "id": 17
     }
   ]
 }

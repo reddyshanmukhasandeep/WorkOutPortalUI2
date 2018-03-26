@@ -1,0 +1,18 @@
+{
+  "workout": [
+    {
+      "workout_id": 1,
+      "title": "Morning Run for 5 min",
+      "catergoy_id": 3,
+      "CBM": 0.01,
+      "note": "Running"
+    },
+    {
+      "workout_id": 2,
+      "title": "Jogging Run for 5 min",
+      "catergoy_id": 1,
+      "CBM": 0.01,
+      "note": "Jogging"
+    }
+  ]
+  }

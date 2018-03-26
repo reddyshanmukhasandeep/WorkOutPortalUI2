@@ -18,4 +18,9 @@ export class WorkoutcategoryService {
   deleteCategory(category){
     return this.http.delete(this.categoryUrl)
   }
+  updateCategory(category){
+    return this.http.put(this.categoryUrl,category);
+  }
+
+  
 }

@@ -1,0 +1,81 @@
+<div class="container" style="padding-top:20px">
+    <h4> Edit  Workout</h4>
+    
+ </div>
+ 
+  <div class="container" style="padding-top:10px">
+ 
+   <form [formGroup]="workoutForm" (ngSubmit)="updateWorkout()" >
+    <div class="form-group">
+ 
+       <div class="row">
+         <div class="col-lg-1"><label for="title">Title:</label></div>
+         <div class="col-lg-4"><input [value]=workout.title type="text" class="form-control" formControlName="title" id="title">
+           <span *ngIf="!workoutForm.get('title').valid && workoutForm.get('title').touched"
+           class="help-block" style="color:red"> Please Enter Title Name (Minimum 5 Characters)</span>
+         </div>
+         
+       </div>
+       <br>
+       <div class="row">
+           <div class="col-lg-1">
+             <label for="Note">Note:</label>
+           </div>
+           <div class="col-lg-4">
+             <textarea type="text" [value]=workout.note class="form-control" formControlName="note" id="Title">
+             </textarea>
+             <span *ngIf="!workoutForm.get('note').valid && workoutForm.get('note').touched"
+             class="help-block" style="color:red"> Please Enter Notes  (Minimum 5 Characters)</span>
+           </div>      
+       </div>
+         <br>
+         <div class="row">
+ 
+           <div class="col-lg-3">
+             <label for="CBM">Calories Burnt Per Min</label>
+           </div>
+           <div class="col-lg-2 ">
+               <input type="number" [value]=workout.CBM class="form-control" step=0.1 formControlName="CBM" id="CBM">
+               <span *ngIf="!workoutForm.get('CBM').valid && workoutForm.get('CBM').touched " class="help-block" style="color:red">
+                  Please Enter Calories   (Greater than 0.1)</span>
+           </div>
+        
+         </div>
+ <br>
+         <div class="row">
+ 
+           <div class="col-lg-1">
+             <label for="category">Category:</label>
+           </div>
+           <div class="col-lg-4">
+             <select class="form-control" formControlName="catergoy_id" >
+              <option *ngFor="let category of categoryList" [ngValue]=workout.catergory_id>
+                {{category.categoryname}}
+              </option> 
+              <span *ngIf="!workoutForm.get('catergoy_id').valid && workoutForm.get('catergoy_id').touched " class="help-block" style="color:red">
+                 Please Select category</span>
+                          </select>
+                         
+           </div>
+         </div>
+         <br>
+             
+         <div class="row">
+             <div class="col-lg-3" style="padding-left:4%">
+                 <button style="width:90%" class="btn btn-success btn-lg "  type="submit"  [disabled]="!workoutForm.get('title').valid || !workoutForm.get('CBM').valid  || !workoutForm.get('note').valid" >
+                    Update WorkOut
+                    
+                   </button>&nbsp;
+                  
+              </div>
+               <div class="col-lg-1">
+                   
+                   <button class ="btn btn-default btn-lg">Cancel</button>
+               </div>
+         </div>
+    
+    </div>
+   </form>
+   </div>
+ 
+ 

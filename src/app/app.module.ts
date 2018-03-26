@@ -13,7 +13,10 @@ import { StartComponent } from './start/start.component';
 import { StopComponent } from './stop/stop.component';
 import {UrlproviderService} from './services/urlprovider.service'
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { FilterPipe } from './filter.pipe';
+import {WorkoutsessionService} from './services/workoutsession.service';
+import { EditComponent } from './edit/edit.component'
 
 @NgModule({
   declarations: [
@@ -25,6 +28,8 @@ import {HttpClientModule} from '@angular/common/http'
     HeaderComponent,
     StartComponent,
     StopComponent,
+    FilterPipe,
+    EditComponent,
     
   ],
   imports: [
@@ -34,7 +39,7 @@ import {HttpClientModule} from '@angular/common/http'
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [UrlproviderService],
+  providers: [UrlproviderService,WorkoutsessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

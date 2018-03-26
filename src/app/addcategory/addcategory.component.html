@@ -5,11 +5,11 @@
   </div>
   
   
-   <div class="container">
+   <div class="container" >
       
       <div class="row">
         <div class="col-lg-8">
-          <input  #inputcategory style="width:29%">
+          <input  #inputcategory style="width:29%" placeholder="Add category">
           
         </div>
         <div class="col-lg-4 addicon">
@@ -18,28 +18,23 @@
         </div>
         
      </div>
-          
-     <div class="container list">
-      
-       <ul *ngFor="let category of categoryList" style="list-style-type: none;">
-         <div class="row">
-            <div class="col-lg-8">
-                   <li>{{category.categoryname}}
-        
-                       </li>
-            </div>
-       
-           <div class="col-lg-4" style="margin-left:-46%">
-            <button class="btn btn-default" (click)="editableInput = !editableInput">
-              <span *ngIf="editableInput">UPDATE</span>
-              <span *ngIf="!editableInput">EDIT</span>
-            </button>&nbsp;
-            <button class="btn btn-default" (click)=" deleteCategory(category)">Delete</button>
-             
-           </div>
+     <div style="padding-top:10px" class="row" *ngFor="let category of categoryList ;let in of index" >
+       <div class="col-lg-8">
+          <input style= "width:29%"type="text" name="category-{{in}}" [(ngModel)]="category.categoryname" [readonly]= "!editableInput" name="" id="">
        </div>
-       </ul>
-   </div>
+       
+       <div class="col-lg-4" style="margin-left:-46%">
+          <button class="btn btn-default" (click)="editableInputs(category)">
+            <span *ngIf="editableInput">UPDATE</span>
+            <span *ngIf="!editableInput">EDIT</span>
+          </button>&nbsp;
+          <button class="btn btn-default" (click)=" deleteCategory(category)">Delete</button>
+           
+         </div>
+     </div>
+          
+   
+     
    </div>
 
 

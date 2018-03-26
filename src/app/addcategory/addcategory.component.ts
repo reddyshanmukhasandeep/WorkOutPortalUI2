@@ -23,7 +23,7 @@ export class AddcategoryComponent implements OnInit {
   }
 
     addCategory(categoryname){
-      console.log("**Category**"+categoryname);
+     
       
      let inputcategory ={}
      inputcategory["categoryname"] = categoryname
@@ -35,15 +35,39 @@ export class AddcategoryComponent implements OnInit {
       }
        else{
          console.log("Else Block");
-        
          this.workoutcategoryService.postCategories(inputcategory).subscribe(data => {this.categoryList.push(inputcategory); this.check=false});
-         
-         
+       
        }
       
        console.log(this.categoryList);
        
 
+}
+
+updateCategory(categoryname){
+  
+  let inputcategory ={}
+  inputcategory["categoryname"] = categoryname
+
+    if(categoryname=='' || categoryname==undefined){
+     this.check=true;
+     console.log(this.check)
+     
+   }
+    else{
+      console.log("Else Block");
+      this.workoutcategoryService.updateCategory(inputcategory).subscribe(data => {this.categoryList.push(inputcategory); this.check=false});
+    
+    }
+   
+    console.log(this.categoryList);
+    
+
+}
+editableInputs(category){
+
+this.editableInput = !this.editableInput
+ this.updateCategory(category)
 }
 
 
