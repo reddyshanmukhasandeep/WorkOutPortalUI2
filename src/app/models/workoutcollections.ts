@@ -1,7 +1,7 @@
 export class Workoutcollections {
   workoutId:number;
   note:string;
-  CBM:number;
+  cbm:number;
   title:string;
-  catergory_id:number
+  catergoryId:number
 }

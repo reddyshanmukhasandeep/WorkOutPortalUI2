@@ -16,7 +16,8 @@ import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { FilterPipe } from './filter.pipe';
 import {WorkoutsessionService} from './services/workoutsession.service';
-import { EditComponent } from './edit/edit.component'
+import { EditComponent } from './edit/edit.component';
+import { FilterCategoryPipe } from './filter-category.pipe'
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { EditComponent } from './edit/edit.component'
     StopComponent,
     FilterPipe,
     EditComponent,
+    FilterCategoryPipe,
     
   ],
   imports: [

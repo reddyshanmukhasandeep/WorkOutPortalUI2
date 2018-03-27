@@ -1,9 +1,9 @@
 export interface Workoutactive {
-    workout_id:number
-    start_time:string
-    start_date:string
-    end_date:string
-    end_time:string
+    workoutId:number
+    startTime:string
+    startDate:string
+    endDate:string
+    endTime:string
     comment:string
     status:boolean
 }

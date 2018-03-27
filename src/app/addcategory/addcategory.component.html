@@ -3,24 +3,33 @@
     Add Category
   </p>
   </div>
-  
+    
   
    <div class="container" >
-      
+    <div class="row">
+      <div class="col-lg-5">
+        
+        <input class="form-control font" #box (keyup.enter)="getcategory(box.value)"  type="text" [(ngModel)]= "value"  name="value" placeholder="Search Category"/>
+      </div>
+      <div class="col-lg-1">
+        <img  style="cursor: pointer;width:80%;margin-left: -135%;" (click)="getcategory(value)" class="searchicon" src="assets/search.png">
+     </div>
+    </div>
+    <br>
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-11">
           <input  #inputcategory style="width:29%" placeholder="Add category">
           
         </div>
         <div class="col-lg-4 addicon">
-          <img src="assets\plusicon.png" alt="add" width="10%" (click)="addCategory(inputcategory.value); inputcategory.value=''">
+          <img src="assets\plusicon.png" alt="add"  style="cursor:pointer" width="10%" (click)="addCategory(inputcategory.value); inputcategory.value=''">
           <div class="small" *ngIf=check style="color:red;margin-left:-61%">Enter the Category name</div>
         </div>
         
      </div>
-     <div style="padding-top:10px" class="row" *ngFor="let category of categoryList ;let in of index" >
+     <div style="padding-top:10px" class="row" *ngFor="let category of categoryList| filterCategory:value" >
        <div class="col-lg-8">
-          <input style= "width:29%"type="text" name="category-{{in}}" [(ngModel)]="category.categoryname" [readonly]= "!editableInput" name="" id="">
+          <input style= "width:29%"type="text" name="category" [(ngModel)]="category.categoryName" [readonly]= "!editableInput" name="" id="">
        </div>
        
        <div class="col-lg-4" style="margin-left:-46%">

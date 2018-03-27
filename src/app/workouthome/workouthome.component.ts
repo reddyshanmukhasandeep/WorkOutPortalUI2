@@ -36,30 +36,24 @@ export class WorkouthomeComponent implements OnInit {
     }
    
     start(workout){
-      
-      this.workoutsessionService.setWorkoutId(workout.workout_id)
-      this.router.navigate([workout.workout_id,'start']);
+     this.workoutsessionService.setWorkoutId(workout.workoutId)
+      this.router.navigate([workout.workoutId,'start']);
     }
 
     end(workout){
       
-      this.workoutsessionService.setWorkoutId(workout.workout_id)
-      this.router.navigate([workout.workout_id,'end']);
+      this.workoutsessionService.setWorkoutId(workout.workoutId)
+      this.router.navigate([workout.workoutId,'end']);
     }
     deleteworkout(workout){
-
-      this.workoutCollectionsService.deleteworkout(workout).subscribe(
-        data =>{ 
-          this.workoutCollectionsService.getworkouts().subscribe(data=>
-            {this.workoutList.splice(workout,1)}
-
-      )
+       this.workoutList = this.workoutList.filter(u => u !== workout)
+      this.workoutCollectionsService.deleteworkout(workout).subscribe()
     }
-      )}
 
  
       editworkout(workout){
-        this.router.navigate([workout.workout_id,'edit']);
+        this.workoutsessionService.setWorkoutId(workout.workoutId)
+        this.router.navigate([workout.workoutId,'edit']);
       }
 
 

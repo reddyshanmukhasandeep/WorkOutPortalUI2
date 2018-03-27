@@ -6,17 +6,19 @@ import 'rxjs/Rx';
 export class WorkoutcategoryService {
    private categoryUrl:string
   constructor(private http:HttpClient,private urlproviderService:UrlproviderService) {
-     this.categoryUrl = urlproviderService.getCompleteURL("category");
+     this.categoryUrl = urlproviderService.getCompleteURL("category/");
    }
    getCategories(){
       
        return this.http.get(this.categoryUrl);
   }
   postCategories(category){
+    
      return this.http.post(this.categoryUrl,category);
   }
-  deleteCategory(category){
-    return this.http.delete(this.categoryUrl)
+  deleteCategory(id){
+    return this.http.delete(this.categoryUrl+id)
+    
   }
   updateCategory(category){
     return this.http.put(this.categoryUrl,category);

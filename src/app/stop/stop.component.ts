@@ -15,19 +15,24 @@ import {Router} from '@angular/router'
   providers:[Workoutcollections,WorkoutcollectionsService,WorkoutactiveService]
 })
 export class StopComponent implements OnInit  {
-  workoutActive:Workoutactive
+  workoutActive={}
   endForm:FormGroup;
   workout_id:any
  end_date:string
   workouts:any
-  workout:any
-  constructor(private router:Router ,private activatedRoute:ActivatedRoute,private workoutcollectionsService:WorkoutcollectionsService,private workoutactiveService:WorkoutactiveService,private workoutsessionService:WorkoutsessionService ) {
+  finalWorkoutactive={}
+  constructor(private workoutactiveService:WorkoutactiveService,private router:Router ,private activatedRoute:ActivatedRoute,private workoutcollectionsService:WorkoutcollectionsService,private workoutsessionService:WorkoutsessionService ) {
     this.end_date = new Date().toISOString().slice(0, 16);
     this.workoutsessionService.currentworkout_id.subscribe(id =>{
      console.log("id present in stop compnet  "+id);
       this.workout_id =id;
       console.log("workout id"+this.workout_id);
       
+    })
+
+    this.workoutactiveService.getworkoutActiveById(this.workout_id).subscribe(data => {this.workoutActive= data
+    console.log("Startting workoutActive"+JSON.stringify(this.workoutActive));
+    
     })
    }
 
@@ -42,22 +47,24 @@ export class StopComponent implements OnInit  {
         
       }
     )
+     
 
     this.endForm= new FormGroup({
-      end_time : new FormControl('',[<any>Validators.required]),
-     end_date :new FormControl('',<any>Validators.required)
+      endTime : new FormControl('',[<any>Validators.required]),
+     endDate :new FormControl('',<any>Validators.required)
     }
 
     )
   }
   end()
   {
+    this.finalWorkoutactive["workOutActiveId"] = this.workoutActive.workOutActiveId;
     this.workoutActive = this.endForm.value;
+    
     console.log("End Page");
     console.log(this.workoutActive);
-    this.workoutactiveService.postworkoutActive(this.workoutActive).subscribe(res =>{
-      console.log(res); 
-    })
+    this.workoutactiveService.putworkoutActive(this.workoutActive).subscribe(); 
+    this.router.navigate(['workouts'])
     
   }
   cancel(){

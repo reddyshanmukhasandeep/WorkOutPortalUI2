@@ -15,18 +15,28 @@ export class AddcategoryComponent implements OnInit {
   editableInput:boolean=false;
   categoryList:any;
   categoryForm:any
-
+  value:string
   ngOnInit() {
      this.workoutcategoryService.getCategories().subscribe(data=> { this.categoryList=data;
+      console.log("On page Load List");
+      
       console.log(this.categoryList)
     }) 
   }
 
+  getcategory(value){
+    console.log("Inside get cat"+value);
+    
+    this.workoutcategoryService.getCategories().subscribe(data=> { this.categoryList=data;})
+  }
     addCategory(categoryname){
      
+      console.log("Inside Add Category");
+      console.log(categoryname);
+      
       
      let inputcategory ={}
-     inputcategory["categoryname"] = categoryname
+     inputcategory["categoryName"] = categoryname
 
        if(categoryname=='' || categoryname==undefined){
         this.check=true;
@@ -35,7 +45,11 @@ export class AddcategoryComponent implements OnInit {
       }
        else{
          console.log("Else Block");
-         this.workoutcategoryService.postCategories(inputcategory).subscribe(data => {this.categoryList.push(inputcategory); this.check=false});
+        console.log(inputcategory);
+        
+         this.workoutcategoryService.postCategories(inputcategory).subscribe(data => {this.categoryList.push(inputcategory); this.check=false;this.ngOnInit()}
+         
+        );
        
        }
       
@@ -44,22 +58,25 @@ export class AddcategoryComponent implements OnInit {
 
 }
 
-updateCategory(categoryname){
+updateCategory(category){
+  console.log("Inside Update Category");
   
-  let inputcategory ={}
-  inputcategory["categoryname"] = categoryname
-
-    if(categoryname=='' || categoryname==undefined){
+  console.log(category);
+  
+    if(category=='' || category==undefined){
      this.check=true;
      console.log(this.check)
      
    }
     else{
       console.log("Else Block");
-      this.workoutcategoryService.updateCategory(inputcategory).subscribe(data => {this.categoryList.push(inputcategory); this.check=false});
+      console.log(category);
+      
+      this.workoutcategoryService.updateCategory(category).subscribe(data => { this.check=false});
     
     }
-   
+    console.log("After else update block");
+    
     console.log(this.categoryList);
     
 
@@ -67,23 +84,22 @@ updateCategory(categoryname){
 editableInputs(category){
 
 this.editableInput = !this.editableInput
- this.updateCategory(category)
+if(!this.editableInput){
+    console.log();
+    
+  this.updateCategory(category)
+
 }
 
 
- deleteCategory1(category){
-     this.workoutcategoryService.deleteCategory(category).subscribe(data=>{
-      this.workoutcategoryService.getCategories().subscribe(data=> { this.categoryList.splice(category,1)
-        console.log(this.categoryList)
-      }) 
-     })
- }
+}
+
 
  deleteCategory(category){
-   this.categoryList.splice(category,1)
-     console.log(this.categoryList)
-   
   
-}
+  this.categoryList = this.categoryList.filter(u => u !== category)
+  this.workoutcategoryService.deleteCategory(category.categoryId).subscribe()
+  
 
+}
 }

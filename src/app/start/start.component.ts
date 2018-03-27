@@ -17,21 +17,28 @@ export class StartComponent implements OnInit {
   workoutActive:Workoutactive
   startForm:FormGroup;
   workout_id:any
-  start_date:string
+  startDate:string
   workouts:any
   workout:any
 
   constructor(private router:Router ,private activatedRoute:ActivatedRoute,private workoutcollectionsService:WorkoutcollectionsService,private workoutactiveService:WorkoutactiveService,private workoutsessionService:WorkoutsessionService ) {
-    this.start_date = new Date().toISOString().slice(0, 16);
+    this.startDate = new Date().toISOString().slice(0, 16);
        
     this.workoutsessionService.currentworkout_id.subscribe(id =>{
-      
-      
       console.log("id present in start compnet  "+id);
       this.workout_id =id;
       console.log("workout id"+this.workout_id);
       
     })
+
+    this.workoutcollectionsService.getworkoutById(this.workout_id).subscribe(
+      data =>{
+       
+        this.workouts =data
+        console.log("workout to show start page"+ JSON.stringify(this.workouts));
+        
+      }
+    )
 
    }
 
@@ -48,8 +55,8 @@ export class StartComponent implements OnInit {
     )
 
     this.startForm= new FormGroup({
-      start_time : new FormControl('',[<any>Validators.required]),
-      start_date :new FormControl('',<any>Validators.required)
+      startTime : new FormControl('',[<any>Validators.required]),
+      startDate :new FormControl('',<any>Validators.required)
     }
 
     )
@@ -57,11 +64,14 @@ export class StartComponent implements OnInit {
   start()
   {
     this.workoutActive = this.startForm.value;
+    this.workoutActive.workoutId = this.workout_id;
     console.log("Start Page");
     console.log(this.workoutActive);
     this.workoutactiveService.postworkoutActive(this.workoutActive).subscribe(res =>{
       console.log(res); 
     })
+    this.router.navigate(['workouts'])
+
     
   }
   cancel(){

@@ -36,8 +36,8 @@ export class AddworkoutComponent implements OnInit {
    )
     this.workoutForm = new FormGroup ({
       title: new FormControl('', [<any>Validators.required, Validators.minLength(5)]),
-      catergoy_id: new FormControl('', [<any>Validators.required]),
-      CBM:new  FormControl('',[<any>Validators.required]),
+      categoryId: new FormControl('', [<any>Validators.required]),
+      cbm:new  FormControl('',[<any>Validators.required]),
       note:new FormControl('',[<any>Validators.required,Validators.minLength(5)])
      
   })
@@ -47,6 +47,12 @@ export class AddworkoutComponent implements OnInit {
 addWorkout() 
 {
   this.workout=this.workoutForm.value;
+  console.log(this.workoutForm.value);
+  
+  console.log("Adding WorkOuts");
+  console.log(this.workout);
+  
+  
   this.workoutCollectionsService.postworkouts(this.workout).subscribe(workout =>this.workoutList.push(this.workout));
   this.router.navigate(['workouts']);
 }

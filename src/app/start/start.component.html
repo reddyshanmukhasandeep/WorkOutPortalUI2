@@ -3,7 +3,7 @@
        <h4>Start Workout</h4>
    </div>
    <div style="padding-top:10px">
-        <form [formGroup]="startForm">
+        
                 
                     <div class="form-group">
                 
@@ -12,8 +12,9 @@
                             <label for="title">Title:</label>
                         </div>
                         <div class="col-lg-3">
-                    <input type="text" readonly style="width:100%" class="form-contorl" [ngModel]="workout.title" id="title">
-                        </div>
+                    <!-- <input type="text" readonly style="width:100%" class="form-contorl" [(ngModel)]=workouts.title id="title"> -->
+                            {{workouts.title}}
+                </div>
                       </div>
                 <br>
                       <div class="row">
@@ -21,25 +22,27 @@
                               <label for="note">Note:</label>
                           </div>
                           <div class="col-lg-3">
-                      <textarea type="text" style="width: 100%;height: 126%;" readonly class="form-contorl" [ngModel]="workout.note" id="note"></textarea>
-                          </div>
+                      <!-- <textarea type="text" style="width: 100%;height: 126%;" readonly class="form-contorl" [(ngModel)]=workouts.note id="note"></textarea> -->
+                        {{workouts.note}}      
+                    </div>
                         </div>
                 <br>
-                        <div class="row">
+                <form [formGroup]="startForm" >        
+                <div class="row">
                             <div class="col-lg-2">
-                                <label for="start_date">Start Date:</label>
+                                <label for="startDate">Start Date:</label>
                             </div>
                             <div class="col-lg-3">
-                        <input type="date" [value]="start_date" name="start_date" class="form-contorl" formControlName="start_date" id="start_date" >
+                        <input type="date"    [value]="startDate" name="startDate" class="form-contorl" formControlName="startDate" id="startDate" >
                             </div>
                           </div>
                 <br>
                           <div class="row">
                             <div class="col-lg-2">
-                                <label for="start_time">Start Time</label>
+                                <label for="startTime">Start Time</label>
                             </div>
                             <div class="col-lg-3">
-                    <input type="time" class="form-control" formControlName="start_time" >
+                    <input type="time" class="form-control" formControlName="startTime" >
                             </div>
                           </div>
                 <br>
@@ -51,8 +54,9 @@
                               <button type="submit" class="btn btn-default" (click)="cancel()">Cancel</button>
                             </div>
                           </div>
-                    </div>
+                    
                    </form>
+                </div>
 
 
    </div>

@@ -8,7 +8,7 @@ export class WorkoutactiveService {
   
   private workoutActiveUrl:string
   constructor(private http:HttpClient,private urlproviderService:UrlproviderService) {
-     this.workoutActiveUrl = urlproviderService.getCompleteURL("workoutActive/");
+     this.workoutActiveUrl = urlproviderService.getCompleteURL("workoutactive/");
    }
    
    getworkoutActive(){
@@ -25,5 +25,8 @@ export class WorkoutactiveService {
     return this.http.get(this.workoutActiveUrl+id);
   }
 
- 
+  putworkoutActive(workoutActvie){
+    return this.http.post(this.workoutActiveUrl,workoutActvie);
+
+  }
 }

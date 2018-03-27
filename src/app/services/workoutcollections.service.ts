@@ -15,11 +15,15 @@ export class WorkoutcollectionsService {
      return this.http.post(this.workoutUrl,workout);
   }
   deleteworkout(workout){
-    return this.http.delete(this.workoutUrl)
+    return this.http.delete(this.workoutUrl+workout.workoutId)
   }
   getworkoutById(id){
     console.log("***workout id"+id);
     
     return this.http.get(this.workoutUrl+id);
+  }
+
+  putworkouts(workout){
+    return this.http.put(this.workoutUrl,workout)
   }
 }
