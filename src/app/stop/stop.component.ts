@@ -78,7 +78,6 @@ export class StopComponent implements OnInit  {
     this.workoutActiveStart.endDate = this.workoutActive.endDate
     
    
-
     
     console.log("End Page");
    // console.log(this.finalWorkoutactive);

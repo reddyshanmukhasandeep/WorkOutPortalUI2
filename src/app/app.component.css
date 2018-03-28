@@ -4,7 +4,11 @@
     padding-top: 20px;
 }
 
-
+image{
+    background-repeat: no-repeat,no-repeat;
+    background-image: linear-gradient(red, yellow);
+    
+}
 body {
     font-family: 'Oswald', sans-serif !important;
   }
@@ -29,3 +33,6 @@ a:active {
     background-color: white
 }
 
+main{
+    background-color: grey
+}

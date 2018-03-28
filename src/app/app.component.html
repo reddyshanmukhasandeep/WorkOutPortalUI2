@@ -1,16 +1,18 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <app-header></app-header>
+<!-- <img src="assets/quote.jpg" alt="quote" width="30px"> -->
+<div class="container image"  >
 <div class="container">
-<div class ="container title">
-  <h1>
+<div class ="title">
+  <h1 >
     {{ title }}
   </h1>
   
 </div>
 
 
-<div class="container">
-   <div class="row">
+ <div class="container">
+  <div class="row">
     
     <ul class="nav nav-pills">
         <li routerLinkActive="active"><a routerLink="/workouts">View All</a></li> &nbsp;&nbsp;&nbsp;
@@ -20,10 +22,9 @@
     </ul>
 
   </div>
-
-
+ </div>
+   
 </div>
-
-</div>
-
 <router-outlet></router-outlet>
+</div>
+

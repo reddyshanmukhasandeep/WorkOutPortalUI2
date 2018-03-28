@@ -1,13 +1,19 @@
-.display{
-   
-    /* padding:10px;
-    
-    border:1px solid blue; */
-}
+
 
 .borderarea{
     
-  padding-top:5px
+  padding-top:10px;
     
 }
+
+.display{
+  /* border-left: 1px solid blue;
+  border-top: 1px solid blue;
+  border-bottom: 1px solid blue; */
+  border: 2px solid purple;
+  padding:7px;
+  width: 282px;
+  height: 94px;
+}
+
 
