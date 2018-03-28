@@ -15,23 +15,31 @@ import {Router} from '@angular/router'
   providers:[Workoutcollections,WorkoutcollectionsService,WorkoutactiveService]
 })
 export class StopComponent implements OnInit  {
-  workoutActive={}
+  workoutActive:Workoutactive
   endForm:FormGroup;
   workout_id:any
  end_date:string
   workouts:any
-  finalWorkoutactive={}
+  workoutActiveStart:any
+  finalWorkoutactive:Workoutactive
   constructor(private workoutactiveService:WorkoutactiveService,private router:Router ,private activatedRoute:ActivatedRoute,private workoutcollectionsService:WorkoutcollectionsService,private workoutsessionService:WorkoutsessionService ) {
     this.end_date = new Date().toISOString().slice(0, 16);
     this.workoutsessionService.currentworkout_id.subscribe(id =>{
      console.log("id present in stop compnet  "+id);
       this.workout_id =id;
-      console.log("workout id"+this.workout_id);
+     
       
     })
 
-    this.workoutactiveService.getworkoutActiveById(this.workout_id).subscribe(data => {this.workoutActive= data
-    console.log("Startting workoutActive"+JSON.stringify(this.workoutActive));
+    this.workoutactiveService.getworkoutActiveById(this.workout_id).subscribe(data => {
+     console.log("Active Service dat");
+       this.workoutActiveStart= data
+      
+    console.log(this.workoutActiveStart);
+    
+    console.log(this.workoutActiveStart.workoutId);
+    
+    // console.log("Startting workoutActive"+JSON.stringify(this.workoutActive));
     
     })
    }
@@ -40,10 +48,9 @@ export class StopComponent implements OnInit  {
   
     this.workoutcollectionsService.getworkoutById(this.workout_id).subscribe(
       data =>{
-        console.log("data in stop page");
-        console.log(data);
-        this.workouts =data
-        console.log("workout to show stop page"+ JSON.stringify(this.workouts));
+       
+        this.workouts =data ;
+        
         
       }
     )
@@ -58,12 +65,25 @@ export class StopComponent implements OnInit  {
   }
   end()
   {
-    this.finalWorkoutactive["workOutActiveId"] = this.workoutActive.workOutActiveId;
+      console.log("At Starting of Endlog");
+      
+     
+      
+    //this.finalWorkoutactive["workOutActiveId"] = this.workoutActive.workOutActiveId;
     this.workoutActive = this.endForm.value;
+    console.log("edn time");
+     console.log(this.workoutActive.endTime);
+     
+    this.workoutActiveStart.endTime = this.workoutActive.endTime;
+    this.workoutActiveStart.endDate = this.workoutActive.endDate
+    
+   
+
     
     console.log("End Page");
-    console.log(this.workoutActive);
-    this.workoutactiveService.putworkoutActive(this.workoutActive).subscribe(); 
+   // console.log(this.finalWorkoutactive);
+    console.log(this.workoutActiveStart);
+    this.workoutactiveService.putworkoutActive(this.workoutActiveStart).subscribe(); 
     this.router.navigate(['workouts'])
     
   }

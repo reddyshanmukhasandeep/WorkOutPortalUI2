@@ -26,7 +26,7 @@ export class WorkoutactiveService {
   }
 
   putworkoutActive(workoutActvie){
-    return this.http.post(this.workoutActiveUrl,workoutActvie);
+    return this.http.put(this.workoutActiveUrl,workoutActvie);
 
   }
 }
