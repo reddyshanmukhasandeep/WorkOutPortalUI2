@@ -9,8 +9,8 @@
     <div class="form-group">
  
        <div class="row">
-         <div class="col-lg-1"><label for="title">Title:</label></div>
-         <div class="col-lg-4"><input [(ngModel)]=workout.title type="text" class="form-control" formControlName="title" id="title">
+         <div class="col-lg-2"><label for="title">Title:</label></div>
+         <div class="col-lg-4"><input [ngModel]=workout?.title name="title" type="text" class="form-control" formControlName="title" id="title">
            <span *ngIf="!workoutForm.get('title').valid && workoutForm.get('title').touched"
            class="help-block" style="color:red"> Please Enter Title Name (Minimum 5 Characters)</span>
          </div>
@@ -18,11 +18,11 @@
        </div>
        <br>
        <div class="row">
-           <div class="col-lg-1">
+           <div class="col-lg-2">
              <label for="Note">Note:</label>
            </div>
            <div class="col-lg-4">
-             <textarea type="text" [(ngModel)]=workout.note class="form-control" formControlName="note" id="Title">
+             <textarea type="text" [ngModel]=workout?.note name="note" class="form-control" formControlName="note" id="Title">
              </textarea>
              <span *ngIf="!workoutForm.get('note').valid && workoutForm.get('note').touched"
              class="help-block" style="color:red"> Please Enter Notes  (Minimum 5 Characters)</span>
@@ -30,26 +30,32 @@
        </div>
          <br>
          <div class="row">
- 
-           <div class="col-lg-3">
-             <label for="cbm">Calories Burnt Per Min</label>
-           </div>
-           <div class="col-lg-2 ">
-               <input type="number" [(ngModel)]=workout.cbm class="form-control" step=0.1 formControlName="cbm" id="cbm">
-               <span *ngIf="!workoutForm.get('cbm').valid && workoutForm.get('cbm').touched " class="help-block" style="color:red">
-                  Please Enter Calories   (Greater than 0.1)</span>
-           </div>
-        
-         </div>
+            
+                      <div class="col-lg-3">
+                        <label for="cbm">Calories Burnt Per Min</label>
+                      </div>
+                      <div class="col-lg-2 ">
+                          <input type="number" [ngModel]=workout?.cbm name="cbm" class="form-control" step=0.1 formControlName="cbm" id="cbm">                          <span *ngIf="!workoutForm.get('cbm').valid && workoutForm.get('cbm').touched " class="help-block" style="color:red">
+                             Please Enter Calories   (Greater than 0.1)</span>
+                      </div>
+                      <div class="col-lg-1">
+                        <img src="assets/caloryplus.png" style="width: 63%;margin-left: -23px;padding-top: 2px" (click)="cbm=cbm+0.1" alt="Plus">
+                      </div>
+                      <div class="col-lg-1" >
+                        <img src="assets/minus.png" style="width: 59%;margin-left:-62px;padding-top:2px;" (click)="cbm=cbm-0.1" alt="minus">
+                      </div>
+                   
+                    </div>
+     
  <br>
          <div class="row">
  
-           <div class="col-lg-1">
+           <div class="col-lg-2">
              <label for="category">Category:</label>
            </div>
            <div class="col-lg-4">
             <select class="form-control" formControlName="categoryId" >
-             <option *ngFor="let category of categoryList" [ngValue]="category.categoryId">
+             <option *ngFor="let category of categoryList"   [ngValue]="category?.categoryId">
                {{category.categoryName}}
              </option> 
              <span *ngIf="!workoutForm.get('categoryId').valid && workoutForm.get('categoryId').touched " class="help-block" style="color:red">

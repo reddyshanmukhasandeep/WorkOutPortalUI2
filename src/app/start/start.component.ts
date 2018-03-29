@@ -17,13 +17,12 @@ export class StartComponent implements OnInit {
   workoutActive:Workoutactive
   startForm:FormGroup;
   workout_id:any
-  startDate:string
+  today = Date.now();
   workouts:any
   workout:any
 
   constructor(private router:Router ,private activatedRoute:ActivatedRoute,private workoutcollectionsService:WorkoutcollectionsService,private workoutactiveService:WorkoutactiveService,private workoutsessionService:WorkoutsessionService ) {
-    this.startDate = new Date().toISOString().slice(0, 16);
-       
+   
     this.workoutsessionService.currentworkout_id.subscribe(id =>{
       console.log("id present in start compnet  "+id);
       this.workout_id =id;
@@ -65,6 +64,8 @@ export class StartComponent implements OnInit {
   {
     this.workoutActive = this.startForm.value;
     this.workoutActive.workoutId = this.workout_id;
+    console.log(this.workoutActive.startDate);
+    
     console.log("Start Page");
     console.log(this.workoutActive);
     this.workoutactiveService.postworkoutActive(this.workoutActive).subscribe(res =>{

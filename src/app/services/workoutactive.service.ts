@@ -29,4 +29,7 @@ export class WorkoutactiveService {
     return this.http.put(this.workoutActiveUrl,workoutActvie);
 
   }
+  getCalReport(){
+    return this.http.get(this.workoutActiveUrl+"cbm");
+  }
 }

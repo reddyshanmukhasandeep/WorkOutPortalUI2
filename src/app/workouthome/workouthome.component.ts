@@ -16,7 +16,7 @@ export class WorkouthomeComponent implements OnInit {
  workout:Workoutactive;
  workout_id:any
  buttonflag:boolean =false
- 
+ p:number =1
   constructor(private workoutCollectionsService:WorkoutcollectionsService,private router:Router,private workoutactiveService:WorkoutactiveService
   ,private workoutsessionService:WorkoutsessionService) { }
 

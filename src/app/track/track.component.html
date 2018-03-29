@@ -1,80 +1,99 @@
-<div class="container">
+<div class="container" style="padding-top:20px">
      
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-4" style="padding-left:5%">
       Workout Time of Day
     </div>
 
     <div class="clg-lg-2">
       45
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-2" style="padding-left:29px">
       min
     </div>
   </div>
 
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-4" style="padding-left:5%">
       Workout Time of Week
     </div>
 
     <div class="clg-lg-2">
-      240
+     250
     </div>
-    <div class="col-lg-2">
+    <div class="col-lg-2" style="padding-left:21px">
       min
     </div>
   </div>
 
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-4" style="padding-left:5%">
       Workout Time of Month
     </div>
 
     <div class="clg-lg-2">
-      10000
+      1000
     </div>
     <div class="col-lg-2">
       min
     </div>
   </div>
 
-  
+    <br>
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-4" style="padding-left:5%">
       Week Workout Total Calories Burnt
     </div>
 
     <div class="clg-lg-2">
-      10000
+      {{calReport?.week}}
     </div>
   
+  </div >
+  
+  <div class = "row" >
+    <div class="col-lg-6">
+        <canvas id="weekChart" >{{WeekChart}}</canvas>
+    </div>
+    
   </div>
 
-  
+  <br>
   
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-4" style="padding-left:5%">
      Month Workout Total Calories Burnt
     </div>
 
     <div class="clg-lg-2">
-      10000
+      {{calReport?.month}}
     </div>
-  
+    
   </div>
+  <div class = "row" >
+      <div class="col-lg-6">
+          <canvas id="monthChart" >{{monthChart}}</canvas>
+      </div>
+      
+    </div>
 
-  
+   <br>
   
   <div class="row">
-    <div class="col-lg-3">
+    <div class="col-lg-4" style="padding-left:5%">
     Yearly  Workout Total Calories Burnt
     </div>
 
     <div class="clg-lg-2">
-      10000
+      {{calReport?.year}}
     </div>
   
   </div>
+  <div class = "row" >
+      <div class="col-lg-6">
+          <canvas id="yearChart" >{{yearChart}}</canvas>
+      </div>
+      
+    </div>
 
 </div>

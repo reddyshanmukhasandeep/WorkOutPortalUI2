@@ -15,6 +15,8 @@ import {UrlproviderService} from './services/urlprovider.service'
 import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { FilterPipe } from './filter.pipe';
+import {NgxPaginationModule} from 'ngx-pagination';
+
 import {WorkoutsessionService} from './services/workoutsession.service';
 import { EditComponent } from './edit/edit.component';
 import { FilterCategoryPipe } from './filter-category.pipe'
@@ -39,7 +41,8 @@ import { FilterCategoryPipe } from './filter-category.pipe'
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [UrlproviderService,WorkoutsessionService],
   bootstrap: [AppComponent]
