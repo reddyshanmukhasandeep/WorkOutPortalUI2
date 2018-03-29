@@ -1,64 +1,68 @@
-<div class="container">
-   <div style="padding-top:20px">
-       <h4>Start Workout</h4>
-   </div>
-   <div style="padding-top:10px">
+<div style="padding-left:36%">
+    
+    <div class="container">
+        <div style="padding-top:20px">
+            <h4>Start Workout</h4>
+        </div>
+        <div style="padding-top:10px">
+             
+                     
+                         <div class="form-group">
+                     
+                           <div class="row">
+                             <div class="col-lg-2">
+                                 <label for="title">Title:</label>
+                             </div>
+                             <div class="col-lg-3">
+                         <!-- <input type="text" readonly style="width:100%" class="form-contorl" [(ngModel)]=workouts.title id="title"> -->
+                                 {{workouts?.title}}
+                     </div>
+                           </div>
+                     <br>
+                           <div class="row">
+                               <div class="col-lg-2">
+                                   <label for="note">Note:</label>
+                               </div>
+                               <div class="col-lg-3">
+                           <!-- <textarea type="text" style="width: 100%;height: 126%;" readonly class="form-contorl" [(ngModel)]=workouts.note id="note"></textarea> -->
+                             {{workouts?.note}}      
+                         </div>
+                             </div>
+                     <br>
+                     <form [formGroup]="startForm" >        
+                     <div class="row">
+                                 <div class="col-lg-2">
+                                     <label for="startDate">Start Date:</label>
+                                 </div>
+                                 <div class="col-lg-3">
+                             <input type="date"    [value]="today|date:'yyyy-MM-dd'" name="startDate" class="form-contorl" formControlName="startDate" id="startDate" >
+                                 </div>
+                               </div>
+                     <br>
+                               <div class="row">
+                                 <div class="col-lg-2">
+                                     <label for="startTime">Start Time</label>
+                                 </div>
+                                 <div class="col-lg-3">
+                         <input type="time" [value]="today|date:'shortTime'" class="form-control" formControlName="startTime" >
+                                 </div>
+                               </div>
+                     <br>
+                               <div class="row">
+                                 <div class="col-lg-3">
+                                   <button class="btn btn-success" (click)="start()" type="submit">Start</button>
+                                 </div>
+                                 <div class="col-lg-2">
+                                   <button type="submit" class="btn btn-default" (click)="cancel()">Cancel</button>
+                                 </div>
+                               </div>
+                         
+                        </form>
+                     </div>
+     
+     
+        </div>
         
-                
-                    <div class="form-group">
-                
-                      <div class="row">
-                        <div class="col-lg-2">
-                            <label for="title">Title:</label>
-                        </div>
-                        <div class="col-lg-3">
-                    <!-- <input type="text" readonly style="width:100%" class="form-contorl" [(ngModel)]=workouts.title id="title"> -->
-                            {{workouts?.title}}
-                </div>
-                      </div>
-                <br>
-                      <div class="row">
-                          <div class="col-lg-2">
-                              <label for="note">Note:</label>
-                          </div>
-                          <div class="col-lg-3">
-                      <!-- <textarea type="text" style="width: 100%;height: 126%;" readonly class="form-contorl" [(ngModel)]=workouts.note id="note"></textarea> -->
-                        {{workouts?.note}}      
-                    </div>
-                        </div>
-                <br>
-                <form [formGroup]="startForm" >        
-                <div class="row">
-                            <div class="col-lg-2">
-                                <label for="startDate">Start Date:</label>
-                            </div>
-                            <div class="col-lg-3">
-                        <input type="date"    [value]="today|date:'yyyy-MM-dd'" name="startDate" class="form-contorl" formControlName="startDate" id="startDate" >
-                            </div>
-                          </div>
-                <br>
-                          <div class="row">
-                            <div class="col-lg-2">
-                                <label for="startTime">Start Time</label>
-                            </div>
-                            <div class="col-lg-3">
-                    <input type="time" [value]="today|date:'shortTime'" class="form-control" formControlName="startTime" >
-                            </div>
-                          </div>
-                <br>
-                          <div class="row">
-                            <div class="col-lg-3">
-                              <button class="btn btn-success" (click)="start()" type="submit">Start</button>
-                            </div>
-                            <div class="col-lg-2">
-                              <button type="submit" class="btn btn-default" (click)="cancel()">Cancel</button>
-                            </div>
-                          </div>
-                    
-                   </form>
-                </div>
-
-
-   </div>
-   
+     </div>
+     
 </div>

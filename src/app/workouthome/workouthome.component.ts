@@ -18,10 +18,16 @@ export class WorkouthomeComponent implements OnInit {
  buttonflag:boolean =false
  p:number =1
   constructor(private workoutCollectionsService:WorkoutcollectionsService,private router:Router,private workoutactiveService:WorkoutactiveService
-  ,private workoutsessionService:WorkoutsessionService) { }
+  ,private workoutsessionService:WorkoutsessionService) {
+    console.log("const");
+    
+    this.workoutCollectionsService.getworkouts().subscribe(data=> { this.workoutList=data})
+   }
 
 
   ngOnInit() {
+    console.log("init");
+    
     this.workoutCollectionsService.getworkouts().subscribe(data=> { this.workoutList=data})
     this.workoutsessionService.currentworkout_id.subscribe((id) =>{
       this.workout_id =id;

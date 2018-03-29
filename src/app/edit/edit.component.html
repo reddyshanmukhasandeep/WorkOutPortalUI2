@@ -1,4 +1,5 @@
-<div class="container" style="padding-top:20px">
+<div style="padding-left:36%">
+  <div class="container" style="padding-top:20px">
     <h4> Edit  Workout</h4>
     
  </div>
@@ -32,17 +33,17 @@
          <div class="row">
             
                       <div class="col-lg-3">
-                        <label for="cbm">Calories Burnt Per Min</label>
+                        <label for="cbm">CaloriesBurntPerMin</label>
                       </div>
                       <div class="col-lg-2 ">
                           <input type="number" [ngModel]=workout?.cbm name="cbm" class="form-control" step=0.1 formControlName="cbm" id="cbm">                          <span *ngIf="!workoutForm.get('cbm').valid && workoutForm.get('cbm').touched " class="help-block" style="color:red">
-                             Please Enter Calories   (Greater than 0.1)</span>
+                            Enter Calories>0.1</span>
                       </div>
                       <div class="col-lg-1">
-                        <img src="assets/caloryplus.png" style="width: 63%;margin-left: -23px;padding-top: 2px" (click)="cbm=cbm+0.1" alt="Plus">
+                        <img src="assets/caloryplus.png" style="width: 111%;margin-left: -2px;padding-top: 6px"(click)="cbm=cbm+0.1" alt="Plus">
                       </div>
                       <div class="col-lg-1" >
-                        <img src="assets/minus.png" style="width: 59%;margin-left:-62px;padding-top:2px;" (click)="cbm=cbm-0.1" alt="minus">
+                        <img src="assets/minus.png" style="width:114%;margin-left:-21px;padding-top:5px;" (click)="cbm=cbm-0.1" (click)="cbm=cbm-0.1" alt="minus">
                       </div>
                    
                     </div>
@@ -68,7 +69,7 @@
              
          <div class="row">
              <div class="col-lg-3" style="padding-left:4%">
-                 <button style="width:90%" class="btn btn-success btn-lg "  type="submit"  [disabled]="!workoutForm.get('title').valid || !workoutForm.get('cbm').valid  || !workoutForm.get('note').valid" >
+                 <button style="width:120%" class="btn btn-success btn-lg "  type="submit"  [disabled]="!workoutForm.get('title').valid || !workoutForm.get('cbm').valid  || !workoutForm.get('note').valid" >
                     Update WorkOut
                     
                    </button>&nbsp;
@@ -85,3 +86,4 @@
    </div>
  
  
+</div>
