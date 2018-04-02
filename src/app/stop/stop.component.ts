@@ -18,12 +18,12 @@ export class StopComponent implements OnInit  {
   workoutActive:Workoutactive
   endForm:FormGroup;
   workout_id:any
- end_date:string
+ endDate = Date.now()
   workouts:any
   workoutActiveStart:any
   finalWorkoutactive:Workoutactive
   constructor(private workoutactiveService:WorkoutactiveService,private router:Router ,private activatedRoute:ActivatedRoute,private workoutcollectionsService:WorkoutcollectionsService,private workoutsessionService:WorkoutsessionService ) {
-    this.end_date = new Date().toISOString().slice(0, 16);
+   
     this.workoutsessionService.currentworkout_id.subscribe(id =>{
      console.log("id present in stop compnet  "+id);
       this.workout_id =id;

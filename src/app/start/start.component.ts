@@ -18,6 +18,7 @@ export class StartComponent implements OnInit {
   startForm:FormGroup;
   workout_id:any
   today = Date.now();
+ 
   workouts:any
   workout:any
 

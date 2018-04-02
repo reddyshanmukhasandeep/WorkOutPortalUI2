@@ -53,8 +53,10 @@ addWorkout()
   console.log(this.workout);
   
   
-  this.workoutCollectionsService.postworkouts(this.workout).subscribe(workout =>this.workoutList.push(this.workout));
-  this.router.navigate(['workouts']);
+  this.workoutCollectionsService.postworkouts(this.workout).subscribe(workout =>{this.workoutList.push(this.workout);
+    this.router.navigate(['workouts']);}
+  );
+  
 }
 
 }

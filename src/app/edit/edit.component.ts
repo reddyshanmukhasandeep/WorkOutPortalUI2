@@ -17,6 +17,7 @@ export class EditComponent implements OnInit {
   workoutList:any
   categoryList:any
   workout_id:number
+  cbm:number
   constructor(private workoutcollectionsService:WorkoutcollectionsService, private workoutsessionService:WorkoutsessionService,private workoutcategoryService:WorkoutcategoryService,private router:Router,private activateRoute:ActivatedRoute,private workoutCollectionsService:WorkoutcollectionsService) { 
     this.workoutcategoryService.getCategories().subscribe(data=> { 
       console.log("WorkoutCategory Being Called");
@@ -31,6 +32,7 @@ export class EditComponent implements OnInit {
       this.workoutcollectionsService.getworkoutById(this.workout_id).subscribe(
         data =>{
           this.workout=data    
+        
         }
       )
     })

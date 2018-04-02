@@ -28,7 +28,7 @@ export class WorkouthomeComponent implements OnInit {
   ngOnInit() {
     console.log("init");
     
-    this.workoutCollectionsService.getworkouts().subscribe(data=> { this.workoutList=data})
+   // this.workoutCollectionsService.getworkouts().subscribe(data=> { this.workoutList=data})
     this.workoutsessionService.currentworkout_id.subscribe((id) =>{
       this.workout_id =id;
       
